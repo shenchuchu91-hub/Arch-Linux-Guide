@@ -1,0 +1,136 @@
+<svg fill="none" viewBox="0 0 850 260" width="100%" height="260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 深邃极客渐变背景 (Catppuccin Mocha / Tokyo Night) -->
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181825"/>
+      <stop offset="50%" stop-color="#1e1e2e"/>
+      <stop offset="100%" stop-color="#11111b"/>
+    </linearGradient>
+
+    <!-- 典雅 Arch 蓝粉霓虹渐变 -->
+    <linearGradient id="archTitleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1793d1"/>
+      <stop offset="35%" stop-color="#89dceb"/>
+      <stop offset="70%" stop-color="#cba6f7"/>
+      <stop offset="100%" stop-color="#f5c2e7"/>
+    </linearGradient>
+
+    <!-- 外边框微光渐变 -->
+    <linearGradient id="archBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1793d1" stop-opacity="0.85"/>
+      <stop offset="35%" stop-color="#89dceb" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#cba6f7" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f38ba8" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- 底层轻柔光晕 -->
+    <linearGradient id="archSoftGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1793d1" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#cba6f7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f38ba8" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 2px;
+      fill: url(#archTitleGrad);
+    }
+    .en-sub {
+      font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      fill: #89dceb;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+    .quote {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.8px;
+      fill: #cdd6f4;
+    }
+    .badge-lbl {
+      font-family: 'SF Pro Text', -apple-system, 'Fira Code', monospace;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    @keyframes pulseStar {
+      0%, 100% { opacity: 0.35; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    @keyframes floatPetal {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(10deg); }
+    }
+    .anim-star-1 { animation: pulseStar 2.6s infinite ease-in-out; transform-box: fill-box; transform-origin: center; }
+    .anim-star-2 { animation: pulseStar 3.8s infinite ease-in-out 1.2s; transform-box: fill-box; transform-origin: center; }
+    .anim-petal { animation: floatPetal 4.5s infinite ease-in-out; transform-box: fill-box; transform-origin: center; }
+  </style>
+
+  <!-- 圆角外框 -->
+  <rect x="2" y="2" width="846" height="256" rx="16" fill="url(#archBg)"/>
+  <rect x="2" y="2" width="846" height="256" rx="16" stroke="url(#archBorder)" stroke-width="1.6" fill="none"/>
+
+  <!-- 精密极客几何参考线 -->
+  <g stroke="#313244" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.45">
+    <line x1="165" y1="2" x2="165" y2="258"/>
+    <line x1="720" y1="2" x2="720" y2="258"/>
+    <line x1="2" y1="65" x2="848" y2="65"/>
+    <line x1="2" y1="195" x2="848" y2="195"/>
+  </g>
+
+  <!-- 底层柔光流体 -->
+  <path d="M 2,175 C 180,215 340,145 520,185 C 680,225 760,170 848,195 L 848,258 L 2,258 Z" fill="url(#archSoftGlow)"/>
+
+  <!-- 坐标刻度 -->
+  <g opacity="0.35" fill="#a6adc8" font-family="monospace" font-size="9">
+    <text x="16" y="24">ARCH // UPSTREAM // PURE</text>
+    <text x="735" y="24">VERIFIABLE // 2026</text>
+    <text x="16" y="246">BASE: PACSTRAP</text>
+    <text x="740" y="246">WM: NIRI-WAYLAND</text>
+  </g>
+
+  <!-- 星光点缀 -->
+  <text x="195" y="52" fill="#f9e2af" font-size="14" class="anim-star-1">✦</text>
+  <text x="690" y="55" fill="#f9e2af" font-size="14" class="anim-star-2">✦</text>
+  <text x="660" y="228" fill="#f38ba8" font-size="15" class="anim-petal">🌸</text>
+  <text x="175" y="228" fill="#89dceb" font-size="13" class="anim-star-2">✧</text>
+
+  <!-- 左侧：Arch Linux 官方标志性造型徽章 -->
+  <g transform="translate(48, 70)">
+    <circle cx="45" cy="45" r="44" fill="#181825" stroke="#313244" stroke-width="1.2"/>
+    <circle cx="45" cy="45" r="41" stroke="#1793d1" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+
+    <!-- Arch 蓝白主 Delta 向量徽标 -->
+    <path d="M 45,15 C 41,25 35,38 31,47 C 35,51 40,54 45,55 C 50,54 55,51 59,47 C 55,38 49,25 45,15 Z M 45,26 C 47.5,33 50.5,41 53,46 C 49.5,48.5 45.5,50 45,50 C 44.5,50 40.5,48.5 37,46 C 39.5,41 42.5,33 45,26 Z" fill="#1793d1"/>
+    <path d="M 45,56 C 39,55 33,52 28,47 C 24,57 18,72 15,77 C 22,79 30,80 39,80 C 40,78 41,74 42,70 C 37,69 33,66 30,62 C 34,57 40,56 45,56 Z M 45,56 C 50,56 56,57 60,62 C 57,66 53,69 48,70 C 49,74 50,78 51,80 C 60,80 68,79 75,77 C 72,72 66,57 62,47 C 57,52 51,55 45,56 Z" fill="#89dceb"/>
+  </g>
+
+  <!-- 右侧主体文字 -->
+  <g transform="translate(195, 45)">
+    <text x="0" y="24" class="en-sub">PURE ARCH LINUX · FULL-STACK SYSTEM ENGINEERING</text>
+    <text x="0" y="65" class="title">Arch Linux 完整实践与桌面工程指南</text>
+    <text x="0" y="98" class="quote">『 从裸机系统底座构建，到现代化 Wayland 卷轴平铺桌面的全景实战指南 』</text>
+
+    <!-- 胶囊徽章条 -->
+    <g transform="translate(0, 122)">
+      <rect x="0" y="0" width="135" height="28" rx="6" fill="#181825" stroke="#1793d1" stroke-width="1"/>
+      <text x="12" y="18" class="badge-lbl" fill="#89dceb">🐧 Pure Arch Base</text>
+
+      <rect x="143" y="0" width="135" height="28" rx="6" fill="#181825" stroke="#cba6f7" stroke-width="1"/>
+      <text x="155" y="18" class="badge-lbl" fill="#cba6f7">🪟 Niri Wayland</text>
+
+      <rect x="286" y="0" width="135" height="28" rx="6" fill="#181825" stroke="#76B900" stroke-width="1"/>
+      <text x="298" y="18" class="badge-lbl" fill="#a6e3a1">⚡ Prime &amp; Vulkan</text>
+
+      <rect x="429" y="0" width="105" height="28" rx="6" fill="#181825" stroke="#f38ba8" stroke-width="1"/>
+      <text x="441" y="18" class="badge-lbl" fill="#f38ba8">🌸 MIT Open</text>
+    </g>
+  </g>
+</svg>
