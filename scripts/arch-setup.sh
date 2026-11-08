@@ -54,7 +54,7 @@ read -p "是否现在安装系统依赖包？(Y/n): " INSTALL_PKGS
 if [[ ! "$INSTALL_PKGS" =~ ^[Nn]$ ]]; then
     if [ -f "$DOTFILES_DIR/pkglist-native.txt" ]; then
         echo -e "${C_BLUE}[*] 正在通过 pacman 安装官方源核心包...${C_RESET}"
-        sudo pacman -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist-native.txt" || true
+        awk '{print $1}' "$DOTFILES_DIR/pkglist-native.txt" | sudo pacman -S --needed --noconfirm - || true
     fi
 
     # 检查 AUR 助手
@@ -67,7 +67,7 @@ if [[ ! "$INSTALL_PKGS" =~ ^[Nn]$ ]]; then
 
     if [ -n "$AUR_HELPER" ] && [ -f "$DOTFILES_DIR/pkglist-aur.txt" ]; then
         echo -e "${C_BLUE}[*] 检测到 AUR 助手 (${AUR_HELPER})，正在安装 AUR 社区扩展包...${C_RESET}"
-        $AUR_HELPER -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist-aur.txt" || true
+        awk '{print $1}' "$DOTFILES_DIR/pkglist-aur.txt" | $AUR_HELPER -S --needed --noconfirm - || true
     fi
 fi
 
