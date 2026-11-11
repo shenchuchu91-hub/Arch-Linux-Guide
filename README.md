@@ -233,9 +233,9 @@ LANGUAGE=en_US.UTF-8 grub-mkconfig -o /boot/grub/grub.cfg
 ### 1.7 权限分配、用户创建与核心守护进程
 
 ```bash
-# 1. 创建属于 wheel 组的日常日常普通用户
-useradd -m -G wheel -s /bin/bash chuchu
-passwd chuchu
+# 1. 创建属于 wheel 组的日常普通用户（请把 <你的用户名> 换成自己的用户名）
+useradd -m -G wheel -s /bin/bash <你的用户名>
+passwd <你的用户名>
 
 # 2. 赋予 wheel 组 sudo 提权权限
 sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
@@ -435,6 +435,14 @@ cd ~/arch-guide
 chmod +x scripts/arch-setup.sh
 ./scripts/arch-setup.sh
 ```
+
+脚本在安装软件包时遵循以下约定：
+
+- **默认不安装**：所有安装确认均为 `(y/N)`，直接回车等于跳过，避免误装一整份清单；
+- **不会使用 `--noconfirm`**：pacman / yay / paru 都会停下来让你确认；
+- **失败即中止**：安装出错时会打印原因和下一步建议，不再用 `|| true` 把失败吞掉；
+- **驱动与可选软件单独询问**：`nvidia-open-dkms`、`broadcom-wl-dkms` 等显卡/网卡驱动，以及 `v2rayn`、`linuxqq` 这类可选应用，都不会和核心依赖一起默认安装，需要你另行确认；
+- **AUR 需自查 PKGBUILD**：若系统已安装 yay 或 paru，才会询问是否安装 AUR 清单中的软件包。
 
 ### 🛡️ 核心安全准则：
 - **无损软链接**：绝不硬拷贝覆盖配置；
