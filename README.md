@@ -1,30 +1,10 @@
-<div align="center">
+# arch-linux-guide
 
-  <!-- 本地自托管高清 Banner -->
-  <img src="./assets/banner.svg" width="100%" alt="Arch Linux Guide Banner"/>
-
-  <br><br>
-
-  <p align="center">
-    <img src="https://img.shields.io/badge/Platform-Pure%20Arch%20Linux-1793d1?style=for-the-badge&logo=archlinux&logoColor=white" />
-    <img src="https://img.shields.io/badge/Compositor-Niri%20Wayland-FF69B4?style=for-the-badge&logo=wayland&logoColor=white" />
-    <img src="https://img.shields.io/badge/Graphics-Vulkan%20%26%20NVIDIA%20Prime-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
-    <img src="https://img.shields.io/badge/Shell-Fish%204.x-008080?style=for-the-badge&logo=gnubash&logoColor=white" />
-    <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" />
-    <img src="https://img.shields.io/badge/Author-shenchuchu91--hub-ffb6c1?style=for-the-badge" />
-  </p>
-
-  <p align="center">
-    <i>从裸机系统底座构建，到现代化 Wayland 卷轴平铺桌面的全景实战工程指南</i>
-    <br>
-    <sub>“代码当严谨，系统亦优雅。记录纯正 Arch Linux 体系下每一处经过实践检验的技术细节。”</sub>
-  </p>
-
-</div>
+bare-metal arch linux installation and wayland desktop engineering.
 
 ---
 
-## 📑 目录全景 (Table of Contents)
+## 目录全景 (Table of Contents)
 
 - [前言与架构准则 (Preface & Philosophy)](#-前言与架构准则-preface--philosophy)
 - [硬件测试基准与环境对照 (System Specs & Testing Rig)](#-硬件测试基准与环境对照-system-specs--testing-rig)
@@ -61,7 +41,7 @@
 
 ---
 
-## 🌸 前言与架构准则 (Preface & Philosophy)
+## 前言与架构准则 (Preface & Philosophy)
 
 在 Linux 世界中，**Arch Linux** 始终代表着追求透明、简洁（KISS 原则）与极高自主控制权的极客精神。
 
@@ -173,7 +153,7 @@ reflector --country China --age 24 --protocol https --sort rate --save /etc/pacm
 pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode btrfs-progs e2fsprogs git nano vim
 ```
 
-> 💡 *内核选型说明：推荐选择 `linux-zen` 内核，其针对桌面交互延迟与多任务响应进行了专门调度优化。若为 AMD 平台，请将 `intel-ucode` 替换为 `amd-ucode`。*
+>  *内核选型说明：推荐选择 `linux-zen` 内核，其针对桌面交互延迟与多任务响应进行了专门调度优化。若为 AMD 平台，请将 `intel-ucode` 替换为 `amd-ucode`。*
 
 ---
 
@@ -253,7 +233,7 @@ reboot
 
 ---
 
-## ⚡ 卷二：现代硬件驱动与混合显卡调度 (Hardware Drivers & Hybrid GPU)
+## 卷二：现代硬件驱动与混合显卡调度 (Hardware Drivers & Hybrid GPU)
 
 重启登录刚建好的普通用户，开始配置底层显卡与现代驱动。
 
@@ -305,7 +285,7 @@ sudo systemctl enable --now bluetooth
 
 ---
 
-## 🪟 卷三：Niri 卷轴式平铺桌面环境工程 (Niri Rice & Compositor)
+## 卷三：Niri 卷轴式平铺桌面环境工程 (Niri Rice & Compositor)
 
 ### 3.1 卷轴平铺哲学：为什么选择 Niri？
 在平铺窗口管理器（Tiling WM）的演进历程中：
@@ -388,7 +368,7 @@ sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-fira-code ttf-libe
 
 ---
 
-## 🎮 卷五：游戏与生产力运行时生态 (Gaming & Productivity Runtime)
+## 卷五：游戏与生产力运行时生态 (Gaming & Productivity Runtime)
 
 ### 5.1 Multilib 32位库与 Vulkan 环境配置
 编辑 `/etc/pacman.conf`，取消以下两行的注释以启用 32 位软件支持：
@@ -422,7 +402,7 @@ moe-game run -g -m /path/to/game.exe
 
 ---
 
-## 🚀 卷六：自动化无损部署脚本与维护 (Automated Setup & Safety)
+## 卷六：自动化无损部署脚本与维护 (Automated Setup & Safety)
 
 为便于新装机快速还原整套环境，本仓库提供类似大老师工程的自动化脚本：
 
@@ -436,29 +416,21 @@ chmod +x scripts/arch-setup.sh
 ./scripts/arch-setup.sh
 ```
 
-脚本在安装软件包时遵循以下约定：
-
-- **默认不安装**：所有安装确认均为 `(y/N)`，直接回车等于跳过，避免误装一整份清单；
-- **不会使用 `--noconfirm`**：pacman / yay / paru 都会停下来让你确认；
-- **失败即中止**：安装出错时会打印原因和下一步建议，不再用 `|| true` 把失败吞掉；
-- **驱动与可选软件单独询问**：`nvidia-open-dkms`、`broadcom-wl-dkms` 等显卡/网卡驱动，以及 `v2rayn`、`linuxqq` 这类可选应用，都不会和核心依赖一起默认安装，需要你另行确认；
-- **AUR 需自查 PKGBUILD**：若系统已安装 yay 或 paru，才会询问是否安装 AUR 清单中的软件包。
-
-### 🛡️ 核心安全准则：
+### 核心安全准则：
 - **无损软链接**：绝不硬拷贝覆盖配置；
 - **智能时间戳备份**：检测到已有配置目录时，自动归档至 `~/.config_backup_时间戳/`；
 - **一键回滚支持**：移除符号链接并复原备份目录即可瞬间回到初始状态。
 
 ---
 
-## 🌸 致敬、安全守则与许可证 (Credits & Disclaimer)
+## 致敬、安全守则与许可证 (Credits & Disclaimer)
 
 ### 💖 致敬与致谢 (Credits)
 - **[Arch Linux](https://archlinux.org/)**：致敬最纯粹的 Linux 滚动发行版与无比强大的 ArchWiki 社区；
 - **[@SHORiN-KiWATA (Shorin 大老师)](https://github.com/SHORiN-KiWATA)**：致谢大老师在 Arch Linux 中文新手教程、Niri 窗口过滤规则与自动化脚本领域的无私探索；
 - **[Niri 社区](https://github.com/YaLTeR/niri)**：感谢现代 Wayland 卷轴平铺窗口管理器的创造者。
 
-### 🛡️ 安全守则与免责提示 (Disclaimer)
+### 安全守则与免责提示 (Disclaimer)
 本项目涉及磁盘分区、引导加载器及驱动配置等系统级操作。操作前请确保重要数据已妥善备份。完整使用安全规范请参阅全局：  
 👉 **[免责声明与通用安全规范 (Disclaimer)](https://github.com/shenchuchu91-hub/disclaimer)**
 
@@ -466,7 +438,7 @@ chmod +x scripts/arch-setup.sh
 
 <div align="center">
 
-🌸 **版权与许可** 🌸  
+ **版权与许可**   
 本项目基于 [MIT License](LICENSE) 开源发布。
 
 <sub>Designed with precision &amp; care for Arch Linux · <b>shenchuchu91-hub</b></sub>
