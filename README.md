@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="./assets/banner.svg" width="100%" alt="Monochrome Banner"/>
+</div>
+
+---
+
 # arch-linux-guide
 
 bare-metal arch linux installation and wayland desktop engineering.
@@ -422,4 +428,10 @@ chmod +x scripts/arch-setup.sh
 
 <sub>Designed with precision &amp; care for Arch Linux · <b>shenchuchu91-hub</b></sub>
 
+</div>
+
+---
+
+<div align="center">
+  <sub>雨声未停 · 保持冷清 · 独行其道</sub>
 </div>
