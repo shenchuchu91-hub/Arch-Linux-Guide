@@ -7,7 +7,6 @@ bare-metal arch linux installation and wayland desktop engineering.
 ## 目录全景 (Table of Contents)
 
 - [前言与架构准则 (Preface & Philosophy)](#-前言与架构准则-preface--philosophy)
-- [硬件测试基准与环境对照 (System Specs & Testing Rig)](#-硬件测试基准与环境对照-system-specs--testing-rig)
 - [卷一：纯净 Arch Linux 裸机系统安装与底座 (Base Installation)](#-卷一纯净-arch-linux-裸机系统安装与底座-base-installation)
   - [1.1 介质准备与 UEFI 引导前置](#11-介质准备与-uefi-引导前置)
   - [1.2 Live 环境联网与时钟同步](#12-live-环境联网与时钟同步)
@@ -53,26 +52,6 @@ bare-metal arch linux installation and wayland desktop engineering.
 1. **真实可复现**：拒绝玄学参数与不可查证的调整，所有步骤均基于官方文档并经实机验证；
 2. **非破坏性与数据安全**：所有辅助脚本均遵循无损软链接规则，强制执行备份前置；
 3. **架构整洁与现代标准**：全面拥抱现代 Linux 栈（Wayland, PipeWire, systemd-resolved, DKMS, Vulkan 1.3）。
-
----
-
-## 💻 硬件测试基准与环境对照 (System Specs & Testing Rig)
-
-为便于评估本套指南在不同设备上的适用性，下表列出了本文档编写所基于的**测试验证环境**与建议的**最低运行基准**：
-
-<div align="center">
-
-| 硬件 / 环境项目 | 测试验证参考规格 (Tested Environment) | 建议最低运行门槛 (Minimum Requirements) |
-| :--- | :--- | :--- |
-| **设备类型** | 现代混合显卡游戏笔记本 (HP Victus 15) | 常见 64 位 x86_64 笔记本或台式机 |
-| **处理器 (CPU)** | 13th Gen Intel Core i7-13620H (16 线程 @ 4.9GHz) | 4 核心 8 线程以上 x86_64 处理器 |
-| **独立显卡 (GPU)** | NVIDIA GeForce RTX 5060 Laptop (驱动: 565+/615+) | 支持 Vulkan 1.3 的独立显卡或现代核心显卡 |
-| **核心显卡 (iGPU)** | Intel UHD Graphics (13th Gen) | 任意具备硬件加速能力的核显 |
-| **屏幕规格** | 1080p @ 144Hz IPS 高刷新率屏 | 1080p @ 60Hz 标准显示屏 |
-| **运行内存** | 16 GB DDR5 高速内存 | 8 GB RAM (日常流畅运行门槛) |
-| **固态硬盘** | NVMe PCIe 4.0 SSD | 任意 SATA / NVMe 固态硬盘 |
-
-</div>
 
 ---
 
