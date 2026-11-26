@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="./assets/banner.jpg" width="100%" alt="" />
-</p>
-
-<p align="center"><sub>雨还在下</sub></p>
+<img alt="Arch-Linux-Guide · 雨还在下" src="./assets/header.svg" width="100%" />
 
 # Arch 安装笔记
 
@@ -290,3 +286,5 @@ chmod +x scripts/arch-setup.sh
 本仓库 [MIT](LICENSE)。磁盘、引导、驱动写错会进不了系统。命令对不上自己的机器就停。
 
 <p align="center"><sub>雨还在下</sub></p>
+
+<img alt="雨还在下 · 屏幕常亮" src="./assets/footer.svg" width="100%" />
