@@ -1,14 +1,12 @@
-<div align="center">
-  <img src="./assets/banner.svg" width="100%" alt="Monochrome Banner"/>
-</div>
+<p align="center">
+  <img src="./assets/banner.jpg" width="100%" alt="" />
+</p>
 
----
+<p align="center"><sub>雨还在下</sub></p>
 
-# arch-linux-guide
+# Arch 安装笔记
 
-bare-metal arch linux installation and wayland desktop engineering.
-
----
+从 Live 盘到 niri。分区之前先看清磁盘名，命令对不上就停。
 
 ## 目录全景 (Table of Contents)
 
@@ -48,16 +46,12 @@ bare-metal arch linux installation and wayland desktop engineering.
 
 ## 前言与架构准则 (Preface & Philosophy)
 
-在 Linux 世界中，**Arch Linux** 始终代表着追求透明、简洁（KISS 原则）与极高自主控制权的极客精神。
+这是一台机器上的安装记录：Live 盘、分区、驱动，最后到 niri。每台电脑不一样，显卡和磁盘对不上就不要照抄到底。
 
-不同于各类封装好的开箱即用衍生版，**真正的纯正 Arch Linux (Pure Arch Way)** 意味着每一个软件包、每一项守护进程、每一行内核参数均由用户亲手挑选并知晓其运行机制。
-
-本文档立足于**实机生产力与日常娱乐环境**，记录了从裸机硬件准备开始，一步步搭建出稳定底座，并最终演进为现代化 **Niri Wayland 卷轴平铺桌面** 的全流程实战经验。
-
-### 核心工程原则：
-1. **真实可复现**：拒绝玄学参数与不可查证的调整，所有步骤均基于官方文档并经实机验证；
-2. **非破坏性与数据安全**：所有辅助脚本均遵循无损软链接规则，强制执行备份前置；
-3. **架构整洁与现代标准**：全面拥抱现代 Linux 栈（Wayland, PipeWire, systemd-resolved, DKMS, Vulkan 1.3）。
+### 记的时候按这几条：
+1. 步骤尽量能再跑一遍；
+2. 脚本不直接盖掉已有配置，先备份；
+3. 桌面用 Wayland、PipeWire、niri。驱动按自己的显卡来。
 
 ---
 
@@ -433,5 +427,5 @@ chmod +x scripts/arch-setup.sh
 ---
 
 <div align="center">
-  <sub>雨声未停 · 保持冷清 · 独行其道</sub>
+  <sub>雨还在下</sub>
 </div>
